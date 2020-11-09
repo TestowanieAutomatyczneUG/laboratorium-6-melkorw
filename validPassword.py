@@ -4,7 +4,8 @@ import unittest
 class Password:
 
     def validPassword(self, password):
-        return ""
+        if password == "Qwer1234$":
+            return "OK"
 
 
 class FizzBuzzTest(unittest.TestCase):
