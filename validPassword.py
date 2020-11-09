@@ -62,7 +62,7 @@ class Password:
             return "Add special sign"
 
 
-class FizzBuzzTest(unittest.TestCase):
+class PasswordTest(unittest.TestCase):
     def setUp(self):
         self.temp = Password()
 
