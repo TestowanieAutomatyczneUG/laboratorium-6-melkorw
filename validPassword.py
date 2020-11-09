@@ -6,6 +6,8 @@ class Password:
     def validPassword(self, password):
         if type(password) is int:
             raise Exception('Cannot be integer')
+        if type(password) is bool:
+            raise TypeError('Wrong type')
         if password == "Qwer1234$":
             return "OK"
         if len(password) < 8:
@@ -41,7 +43,7 @@ class FizzBuzzTest(unittest.TestCase):
         self.assertRaises(Exception, self.temp.validPassword, 1237)
 
     def test_Password_Exception_bad_type(self):
-        self.assertRaises(TypeError, self.temp.game, True)
+        self.assertRaises(TypeError, self.temp.validPassword, True)
 
     def tearDown(self):
         self.temp = None
