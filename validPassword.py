@@ -24,7 +24,6 @@ class FizzBuzzTest(unittest.TestCase):
     def test_Password_without_number(self):
         self.assertEqual("Add number", self.temp.validPassword("Qwertyui!"))
 
-    @unittest.skip('Skipped')
     def test_Password_without_capital_letter(self):
         self.assertEqual("Add capital letter", self.temp.validPassword("qwertyui!1"))
 
