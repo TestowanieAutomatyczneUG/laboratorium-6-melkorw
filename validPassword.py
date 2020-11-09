@@ -1,22 +1,34 @@
 import unittest
-
+import string
+special_chars = string.punctuation
 
 class Password:
 
     def validPassword(self, password):
         if type(password) is int:
             raise Exception('Cannot be integer')
-        if type(password) is bool:
+        if type(password) is not str:
             raise TypeError('Wrong type')
-        if password == "Qwer1234$":
-            return "OK"
         if len(password) < 8:
             return "Too short"
-        if password == "Qwertyui!":
+        special_sign = False
+        capital_letter = False
+        number = False
+        for letter in password:
+            if letter.isnumeric():
+                number = True
+            elif letter in special_chars:
+                special_sign = True
+            elif letter.isupper():
+                capital_letter = True
+
+        if number and special_sign and capital_letter:
+            return "OK"
+        if not number:
             return "Add number"
-        if not password[0].isupper():
+        if not capital_letter:
             return "Add capital letter"
-        if password == "Qwertyui123":
+        if not special_sign:
             return "Add special sign"
 
 
@@ -51,4 +63,3 @@ class FizzBuzzTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
