@@ -8,6 +8,8 @@ class Password:
             return "OK"
         if len(password) < 8:
             return "Too short"
+        if not password[0].isupper():
+            return "Add capital letter"
 
 
 class FizzBuzzTest(unittest.TestCase):
