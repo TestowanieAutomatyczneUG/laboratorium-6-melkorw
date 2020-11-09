@@ -4,6 +4,8 @@ import unittest
 class Password:
 
     def validPassword(self, password):
+        if type(password) is int:
+            raise Exception('Cannot be integer')
         if password == "Qwer1234$":
             return "OK"
         if len(password) < 8:
@@ -36,11 +38,11 @@ class FizzBuzzTest(unittest.TestCase):
         self.assertEqual("Add special sign", self.temp.validPassword("Qwertyui123"))
 
     def test_Password_Exception_only_number(self):
-        self.assertRaises(ValueError, self.temp.validPassword, 1237)
+        self.assertRaises(Exception, self.temp.validPassword, 1237)
 
     @unittest.skip('Skipped')
-    def test_Password_bad_type(self):
-        self.assertRaises(Exception, self.temp.game, True)
+    def test_Password_Exception_bad_type(self):
+        self.assertRaises(TypeError, self.temp.game, True)
 
     def tearDown(self):
         self.temp = None
