@@ -1,4 +1,5 @@
 # Działa na Pythonie 3.8.X
+import doctest
 class Calculate:
     def add(self, x, y):
         """
@@ -71,5 +72,6 @@ class Calculate:
 
 
 if __name__ == "__main__":
-    import doctest
+    print(Calculate.addWithDocString.__doc__)
+
     doctest.testmod(extraglobs={'c': Calculate()})

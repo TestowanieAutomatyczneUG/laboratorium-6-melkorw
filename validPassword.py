@@ -1,10 +1,40 @@
 import unittest
 import string
+import doctest
+
 special_chars = string.punctuation
+
 
 class Password:
 
     def validPassword(self, password):
+        """
+        >>> p = Password()
+        >>> p.validPassword("Qwer1234$")
+        'OK'
+        >>> p.validPassword("Qwe12!")
+        'Too short'
+        >>> p.validPassword("Q*wertysttt")
+        'Add number'
+        >>> p.validPassword("qwertyst!111")
+        'Add capital letter'
+        >>> p.validPassword("Qwertst1234")
+        'Add special sign'
+        >>> p.validPassword(123)
+        Traceback (most recent call last):
+          File "/Users/aleksanderwardyn/Documents/repo/laboratorium-6-melkorw/validPassword.py", line 51, in <module>
+            p.validPassword(123)
+          File "/Users/aleksanderwardyn/Documents/repo/laboratorium-6-melkorw/validPassword.py", line 25, in validPassword
+            raise Exception('Cannot be integer')
+        Exception: Cannot be integer
+        >>> p.validPassword(True)
+        Traceback (most recent call last):
+          File "/Users/aleksanderwardyn/Documents/repo/laboratorium-6-melkorw/validPassword.py", line 60, in <module>
+            p.validPassword(True)
+          File "/Users/aleksanderwardyn/Documents/repo/laboratorium-6-melkorw/validPassword.py", line 36, in validPassword
+            raise TypeError('Wrong type')
+        TypeError: Wrong type
+        """
         if type(password) is int:
             raise Exception('Cannot be integer')
         if type(password) is not str:
@@ -28,7 +58,7 @@ class Password:
             return "Add number"
         if not capital_letter:
             return "Add capital letter"
-        if not special_sign:
+        else:
             return "Add special sign"
 
 
@@ -61,5 +91,6 @@ class FizzBuzzTest(unittest.TestCase):
         self.temp = None
 
 
-if __name__ == '__main__':
-    unittest.main()
+if __name__ == "__main__":
+    print(Password.validPassword.__doc__)
+    doctest.testmod(extraglobs={'p': Password()})

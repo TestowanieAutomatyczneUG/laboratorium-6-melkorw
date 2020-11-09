@@ -83,3 +83,9 @@ class FizzBuzz:
             return "Buzz"
         else:
             raise Exception("Error in FizzBuzz")
+
+
+if __name__ == "__main__":
+    print(FizzBuzz.game.__doc__)
+
+    doctest.testmod(extraglobs={'fizzBuzz': FizzBuzz()})
