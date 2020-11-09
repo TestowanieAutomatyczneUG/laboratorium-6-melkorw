@@ -40,7 +40,6 @@ class FizzBuzzTest(unittest.TestCase):
     def test_Password_Exception_only_number(self):
         self.assertRaises(Exception, self.temp.validPassword, 1237)
 
-    @unittest.skip('Skipped')
     def test_Password_Exception_bad_type(self):
         self.assertRaises(TypeError, self.temp.game, True)
 
