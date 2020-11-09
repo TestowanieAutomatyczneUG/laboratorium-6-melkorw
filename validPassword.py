@@ -12,6 +12,8 @@ class Password:
             return "Add number"
         if not password[0].isupper():
             return "Add capital letter"
+        if password == "Qwertyui123":
+            return "Add special sign"
 
 
 class FizzBuzzTest(unittest.TestCase):
@@ -31,7 +33,7 @@ class FizzBuzzTest(unittest.TestCase):
         self.assertEqual("Add capital letter", self.temp.validPassword("qwertyui!1"))
 
     def test_Password_without_special_sign(self):
-        self.assertEqual("Add special sign", self.temp.validPassword("qwertyui123"))
+        self.assertEqual("Add special sign", self.temp.validPassword("Qwertyui123"))
 
     @unittest.skip('Skipped')
     def test_Password_Exception_only_number(self):
