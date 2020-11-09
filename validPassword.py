@@ -6,6 +6,8 @@ class Password:
     def validPassword(self, password):
         if password == "Qwer1234$":
             return "OK"
+        if len(password) < 8:
+            return "Too short"
 
 
 class FizzBuzzTest(unittest.TestCase):
@@ -16,23 +18,23 @@ class FizzBuzzTest(unittest.TestCase):
         self.assertEqual("OK", self.temp.validPassword("Qwer1234$"))
 
     def test_Password_too_short(self):
-        self.assertEqual("Too short", self.temp.game("Qwe12*"))
+        self.assertEqual("Too short", self.temp.validPassword("Qwe12*"))
 
     @unittest.skip('Skipped')
     def test_Password_without_number(self):
-        self.assertEqual("Add number", self.temp.game("Qwertyui!"))
+        self.assertEqual("Add number", self.temp.validPassword("Qwertyui!"))
 
     @unittest.skip('Skipped')
     def test_Password_without_capital_letter(self):
-        self.assertEqual("Add capital letter", self.temp.game("qwertyui!1"))
+        self.assertEqual("Add capital letter", self.temp.validPassword("qwertyui!1"))
 
     @unittest.skip('Skipped')
     def test_Password_without_special_sign(self):
-        self.assertEqual("Add special sign", self.temp.game("qwertyui123"))
+        self.assertEqual("Add special sign", self.temp.validPassword("qwertyui123"))
 
     @unittest.skip('Skipped')
     def test_Password_Exception_only_number(self):
-        self.assertRaises(ValueError, self.temp.game, 1237)
+        self.assertRaises(ValueError, self.temp.validPassword, 1237)
 
     @unittest.skip('Skipped')
     def test_Password_bad_type(self):
