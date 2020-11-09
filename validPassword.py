@@ -35,7 +35,6 @@ class FizzBuzzTest(unittest.TestCase):
     def test_Password_without_special_sign(self):
         self.assertEqual("Add special sign", self.temp.validPassword("Qwertyui123"))
 
-    @unittest.skip('Skipped')
     def test_Password_Exception_only_number(self):
         self.assertRaises(ValueError, self.temp.validPassword, 1237)
 
